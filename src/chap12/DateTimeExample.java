@@ -28,67 +28,67 @@ public class DateTimeExample {
     }
 
     private static void customFormatting() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");        // 커스텀 포맷터 생성
-    LocalDate date = LocalDate.of(2023, 10, 11);
-    String formattedDate = date.format(formatter);                                  // 날짜 -> 문자열로 포맷팅
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");        // 커스텀 포맷터 생성
+        LocalDate date = LocalDate.of(2023, 10, 11);
+        String formattedDate = date.format(formatter);                                  // 날짜 -> 문자열로 포맷팅
 
-    System.out.println(formattedDate);                      // 11/10/2023
+        System.out.println(formattedDate);                      // 11/10/2023
 
-    LocalDate parsedDate = LocalDate.parse(formattedDate, formatter);               // 문자열 -> 날짜로 파싱
+        LocalDate parsedDate = LocalDate.parse(formattedDate, formatter);               // 문자열 -> 날짜로 파싱
 
-    System.out.println(parsedDate.equals(date));            // true
+        System.out.println(parsedDate.equals(date));            // true
     }
 
     private static void parseExample() {
-    LocalDate date1 = LocalDate.parse("20231011", DateTimeFormatter.BASIC_ISO_DATE);
-    LocalDate date2 = LocalDate.parse("2023-10-11", DateTimeFormatter.ISO_LOCAL_DATE);
+        LocalDate date1 = LocalDate.parse("20231011", DateTimeFormatter.BASIC_ISO_DATE);
+        LocalDate date2 = LocalDate.parse("2023-10-11", DateTimeFormatter.ISO_LOCAL_DATE);
 
-    System.out.println(date1);      // 2023-10-11
-    System.out.println(date2);      // 2023-10-11
+        System.out.println(date1);      // 2023-10-11
+        System.out.println(date2);      // 2023-10-11
     }
 
     private static void formatExample() {
-    LocalDate date = LocalDate.of(2023, 10, 11);
-    String s1 = date.format(DateTimeFormatter.BASIC_ISO_DATE);
-    String s2 = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        LocalDate date = LocalDate.of(2023, 10, 11);
+        String s1 = date.format(DateTimeFormatter.BASIC_ISO_DATE);
+        String s2 = date.format(DateTimeFormatter.ISO_LOCAL_DATE);
 
-    System.out.println(s1);     // 20231011
-    System.out.println(s2);     // 2023-10-11
+        System.out.println(s1);     // 20231011
+        System.out.println(s2);     // 2023-10-11
     }
 
     private static void customAdjusterExample() {
-    LocalDate thursday = LocalDate.of(2023, 10, 12);
-    LocalDate nextWorkingDay1 = thursday.with(new NextWorkingDay());
+        LocalDate thursday = LocalDate.of(2023, 10, 12);
+        LocalDate nextWorkingDay1 = thursday.with(new NextWorkingDay());
 
-    System.out.println(nextWorkingDay1);        // 2023-10-13
-
-
-    LocalDate friday = LocalDate.of(2023, 10, 13);
-    LocalDate nextWorkingDay2 = friday.with(new NextWorkingDay());
-
-    System.out.println(nextWorkingDay2);        // 2023-10-16
+        System.out.println(nextWorkingDay1);        // 2023-10-13
 
 
-    LocalDate saturday = LocalDate.of(2023, 10, 14);
-    LocalDate nextWorkingDay3 = saturday.with(new NextWorkingDay());
+        LocalDate friday = LocalDate.of(2023, 10, 13);
+        LocalDate nextWorkingDay2 = friday.with(new NextWorkingDay());
 
-    System.out.println(nextWorkingDay3);        // 2023-10-16
+        System.out.println(nextWorkingDay2);        // 2023-10-16
+
+
+        LocalDate saturday = LocalDate.of(2023, 10, 14);
+        LocalDate nextWorkingDay3 = saturday.with(new NextWorkingDay());
+
+        System.out.println(nextWorkingDay3);        // 2023-10-16
     }
 
     private static void temporalAdjustersExample() {
-    LocalDate date = LocalDate.of(2023, 10, 11);
-    LocalDate nextSunday = date.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
-    System.out.println(nextSunday);     // 2023-10-15
+        LocalDate date = LocalDate.of(2023, 10, 11);
+        LocalDate nextSunday = date.with(TemporalAdjusters.nextOrSame(DayOfWeek.SUNDAY));
+        System.out.println(nextSunday);     // 2023-10-15
 
-    LocalDate lastDay = date.with(TemporalAdjusters.lastDayOfMonth());
-    System.out.println(lastDay);        // 2023-10-31
+        LocalDate lastDay = date.with(TemporalAdjusters.lastDayOfMonth());
+        System.out.println(lastDay);        // 2023-10-31
     }
 
     private static void plusMinusExample() {
-    LocalDate date = LocalDate.of(2013, 3, 18);
-    date = date.plusYears(2).minusDays(10);
+        LocalDate date = LocalDate.of(2013, 3, 18);
+        date = date.plusYears(2).minusDays(10);
 
-    System.out.println(date);       // 2015-3-8
+        System.out.println(date);       // 2015-3-8
     }
 
     private static void withExample() {
